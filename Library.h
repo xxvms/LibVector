@@ -16,7 +16,7 @@ private:
 public:
 	void addBook2Lib(Book* bk);
 	void printBooksInLib();
-	void borrow(int id);
+	void borrow(unsigned int id);
 
 };
 

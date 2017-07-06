@@ -37,7 +37,7 @@ int main() {
 			case '3': {
 				library.printBooksInLib();
 				std::cout << "Please type book ID of book you with to borrow: " << std::endl;
-				int bookID{0};
+				unsigned int bookID{0};
 				std::cin >> bookID;
 				library.borrow(bookID-1); // -1 is offset for correct index
 

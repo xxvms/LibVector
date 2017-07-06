@@ -17,8 +17,8 @@ void Library::printBooksInLib() {
 		books_container.at(i)->print();
 	}
 }
-void Library::borrow(int id) {
+void Library::borrow(unsigned int id) {
 
-	books_container[id];
-	books_container[id]->borrow();
+	//books_container[id];
+	books_container.at(id)->borrow();
 }
