@@ -19,8 +19,10 @@ protected:
 public:
 	Book();
 	int getID() { return ID; }
-	int addBook();
+	int add();
 	int static counterNumber() { return counter; }
+	void print();
+	void borrow();
 };
 
 

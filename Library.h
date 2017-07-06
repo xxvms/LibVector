@@ -5,8 +5,18 @@
 #ifndef LIBVECTOR_LIBRARY_H
 #define LIBVECTOR_LIBRARY_H
 
+#include <string>
+#include <vector>
+#include "Book.h"
 
 class Library {
+private:
+	std::vector<Book*> books_container;
+
+public:
+	void addBook2Lib(Book* bk);
+	void printBooksInLib();
+	void borrow(int id);
 
 };
 
