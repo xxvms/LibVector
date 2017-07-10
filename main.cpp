@@ -52,8 +52,9 @@ int main() {
 				library.printBooksInLib();
 				break;
 			case '6':
-				std::cout << "Unfinished print books that are in user possession" << std::endl;
-
+				std::cout << "User books: " << std::endl;
+				library.printUserBooks();
+				break;
 			default:
 				std::cout << "smile its friday";
 				break;

@@ -10,11 +10,11 @@
 
 class User {
 private:
-	Book* user_books;
+	Book const* user_books;
 
 public:
-	void printU();
-	void borrowU(int id);
+	void printU()const;
+	void borrowU(Book const* book);
 	void returnU();
 
 };

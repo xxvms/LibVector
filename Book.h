@@ -21,7 +21,7 @@ public:
 	int getID() { return ID; }
 	int add();
 	int static counterNumber() { return counter; }
-	void print();
+	void print() const;
 	void borrow();
 };
 

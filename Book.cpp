@@ -23,7 +23,7 @@ int Book::add()
 	std::cin >> publicationYear;
 	return ID;
 }
-void Book::print()
+void Book::print() const
 {
 	std::cout << " ------------------- " << std::endl;
 	std::cout << "Book ID:" << ID << std::endl;
@@ -34,7 +34,5 @@ void Book::print()
 
 }
 void Book::borrow() {
-	title = "book borrowed";
-	author = "book borrowed";
-	publicationYear = 0;
+
 }
