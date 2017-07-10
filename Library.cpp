@@ -4,7 +4,6 @@
 
 #include <iostream>
 #include "Library.h"
-#include "User.h"
 
 void Library::addBook2Lib(Book const* bk) {
 
@@ -25,4 +24,10 @@ void Library::borrow(unsigned int id)  {
 void Library::printUserBooks() const
 {
 	user_books->printU();
+}
+
+void Library::returnBook()
+{
+	books_container.push_back(user_books->returnU());
+	user_books = nullptr;
 }

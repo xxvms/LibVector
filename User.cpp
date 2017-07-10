@@ -6,13 +6,13 @@
 #include "User.h"
 
 void User::printU()const {
-
 	std::cout << "User book: " << std::endl;
 	 user_books->print();
 }
 void User::borrowU(Book const * book) {
 	user_books = book;
 }
-void User::returnU() {
+Book const * User::returnU() {
 
+	return user_books;
 }

@@ -2,7 +2,6 @@
 #include <vector>
 #include "Book.h"
 #include "Library.h"
-#include "User.h"
 char menu();
 
 int main() {
@@ -44,7 +43,8 @@ int main() {
 				break;
 			}
 			case '4':
-				std::cout << "Unfinished return book" << std::endl;
+				std::cout << "Return Book" << std::endl;
+				library.returnBook();
 				break;
 
 			case '5':

@@ -22,7 +22,6 @@ public:
 	int add();
 	int static counterNumber() { return counter; }
 	void print() const;
-	void borrow();
 };
 
 

@@ -15,7 +15,7 @@ private:
 public:
 	void printU()const;
 	void borrowU(Book const* book);
-	void returnU();
+	Book const* returnU();
 
 };
 

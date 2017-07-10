@@ -20,6 +20,7 @@ public:
 	void printBooksInLib()const;
 	void borrow(unsigned int id);
 	void printUserBooks() const;
+	void returnBook();
 
 };
 

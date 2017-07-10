@@ -33,6 +33,3 @@ void Book::print() const
 	std::cout << " ------------------- " << std::endl;
 
 }
-void Book::borrow() {
-
-}
