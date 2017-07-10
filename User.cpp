@@ -5,6 +5,8 @@
 #include <iostream>
 #include "User.h"
 
+User::User(): user_books(){}
+
 void User::printU()const {
 	std::cout << "User book: " << std::endl;
 	 user_books->print();

@@ -13,6 +13,7 @@ private:
 	Book const* user_books;
 
 public:
+	User();
 	void printU()const;
 	void borrowU(Book const* book);
 	Book const* returnU();
