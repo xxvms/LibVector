@@ -13,7 +13,7 @@
 class Library {
 private:
 	std::vector<Book const*> books_container;
-	std::vector<User*> user_books;
+	std::vector<Book const*> user_books;
 
 public:
 	void addBook2Lib(Book const* bk);

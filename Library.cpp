@@ -6,8 +6,7 @@
 #include "Library.h"
 
 void Library::addBook2Lib(Book const* bk) {
-
-	books_container.push_back(bk);
+		books_container.push_back(bk);
 }
 void Library::printBooksInLib()const {
 	if (books_container.empty())
@@ -31,10 +30,8 @@ void Library::borrow(unsigned int id)  {
 		std::cout << "***** I am sorry no books in Library! :( ****" << std::endl;
 	} else {
 
-		/*user_books.resize(1);
-		std::cout << "size: ";
-		user_books.size();*/
-		user_books.at(0)->borrowU(books_container.at(id));
+		user_books.reserve(1);
+		user_books.push_back((const Book *&&) books_container.at(id));
 		books_container.erase(books_container.begin()+id);
 	}
 }
@@ -47,12 +44,18 @@ void Library::printUserBooks() const
 		std::cout << std::endl;
 	}else{
 
-		user_books.at(0)->printU();
+		user_books.at(0)->print();
 	}
 }
 
 void Library::returnBook()
-{
-	books_container.push_back(user_books.at(0)->returnU());
-	user_books.at(0) = nullptr;
+{	if (!books_container.empty()){
+
+		books_container.push_back((const Book *&&) user_books.at(0));
+		user_books.clear();
+	} else {
+		std::cout << std::endl;
+		std::cout << "you don't have any books, go and rent one!" << std::endl;
+		std::cout << std::endl;
+	}
 }

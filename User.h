@@ -10,8 +10,7 @@
 
 class User {
 private:
-	std::vector<Book const*> user_books;
-
+	std::vector<Book const*> books_user_have;
 public:
 	User();
 	void printU()const;

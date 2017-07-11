@@ -7,9 +7,11 @@ char menu();
 int main() {
 	Library library;
 	std::vector<Book>book;
+	char choice;
 
 	do {
-		switch (menu())
+		choice = menu();
+		switch (choice)
 		{
 			case '1':
 			{
@@ -24,6 +26,9 @@ int main() {
 			}
 			case '2':
 			{
+				if (!book.empty()){
+
+
 				int howManyBooks = 0;
 				std::cout << "How many books do you want to add:";
 				std::cin >> howManyBooks;
@@ -31,7 +36,14 @@ int main() {
 					book.at(i).add();
 					library.addBook2Lib(&book.at(i));
 				}
-				break;
+				break;} else {
+					std::cout << std::endl;
+					std::cout << "Use option 1 to create library before adding books :)" << std::endl;
+					std::cout << std::endl;
+					break;
+				}
+
+
 			}
 			case '3': {
 				library.printBooksInLib();
@@ -59,7 +71,7 @@ int main() {
 				std::cout << "smile its friday";
 				break;
 		}
-	}while (menu()!= '9');
+	}while (choice != '9');
 
 	return 0;
 }
@@ -72,7 +84,7 @@ char menu() {
 	std::cout << "1 - Set size of the Library" << std::endl;
 	std::cout << "2 - Create book" << std::endl;
 	std::cout << "3 - Borrow book" << std::endl;
-	std::cout << "4 - Return book" << std::endl; // todo create function that user can return book - user can list books he/she have
+	std::cout << "4 - Return book" << std::endl;
 	std::cout << "5 - Print out all books" << std::endl;
 	std::cout << "6 - Print books borrowed by user" << std::endl;
 	std::cout << "9 - to Quit" << std::endl;
