@@ -23,7 +23,7 @@ void Library::printBooksInLib()const {
 		}
 	}
 }
-void Library::borrow(unsigned int id)  {
+void Library::borrow(unsigned int id, Book const* bk)  {
 
 	if (books_container.empty())
 	{
@@ -31,7 +31,8 @@ void Library::borrow(unsigned int id)  {
 	} else {
 
 		user_books.reserve(1);
-		user_books.push_back((const Book *&&) books_container.at(id));
+		user_books.push_back(bk);
+
 		books_container.erase(books_container.begin()+id);
 	}
 }
@@ -48,11 +49,16 @@ void Library::printUserBooks() const
 	}
 }
 
-void Library::returnBook()
+void Library::returnBook(Book const* bk)
 {	if (!books_container.empty()){
 
-		books_container.push_back((const Book *&&) user_books.at(0));
-		user_books.clear();
+		std::cout << std::endl;
+		std::cout << "thanks for returning your book!" << std::endl;
+		std::cout << std::endl;
+
+		books_container.push_back(bk); // this is working but apparently its not good idea to use it
+
+		user_books.pop_back();
 	} else {
 		std::cout << std::endl;
 		std::cout << "you don't have any books, go and rent one!" << std::endl;

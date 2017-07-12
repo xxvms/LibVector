@@ -18,9 +18,9 @@ private:
 public:
 	void addBook2Lib(Book const* bk);
 	void printBooksInLib()const;
-	void borrow(unsigned int id);
+	void borrow(unsigned int id, Book const* bk);
 	void printUserBooks() const;
-	void returnBook();
+	void returnBook(Book const* bk);
 
 };
 

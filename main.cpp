@@ -50,13 +50,14 @@ int main() {
 				std::cout << "Please type book ID of book you with to borrow: " << std::endl;
 				unsigned int bookID{0};
 				std::cin >> bookID;
-				library.borrow(bookID-1); // -1 is offset for correct index
+				library.borrow(bookID-1, &book.at(bookID-1)); // -1 is offset for correct index
 
 				break;
 			}
+
 			case '4':
 				std::cout << "Return Book" << std::endl;
-				library.returnBook();
+				library.returnBook(&book.at(0));
 				break;
 
 			case '5':
