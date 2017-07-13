@@ -25,32 +25,45 @@ int main() {
 				break;
 			}
 			case '2':
-			{
-				if (!book.empty()){
-
-
-				int howManyBooks = 0;
-				std::cout << "How many books do you want to add:";
-				std::cin >> howManyBooks;
-				for (size_t i = 0; i < howManyBooks; ++i) {
-					book.at(i).add();
-					library.addBook2Lib(&book.at(i));
-				}
-				break;} else {
-					std::cout << std::endl;
-					std::cout << "Use option 1 to create library before adding books :)" << std::endl;
-					std::cout << std::endl;
-					break;
-				}
-
-
-			}
+					{
+						if (!book.empty()){
+							char howManyBooks = '0';
+							std::cout << "How many books do you want to add:";
+							std::cin >> howManyBooks;
+							if ( howManyBooks > '0' || howManyBooks < '9'){
+								unsigned int books_to_add = howManyBooks - 48;
+								 //unsigned int books_to_add = static_cast<unsgined int>(howManyBooks - 48);
+								for (size_t i = 0; i < books_to_add; i++) {
+									book.at(i).add();
+									library.addBook2Lib(&book.at(i));
+								}
+							}else {
+								std::cout << std::endl;
+								std::cout << "your input is not a number " << std::endl;
+								std::cout << std::endl;
+								break;
+							}
+						}
+						else {
+							std::cout << std::endl;
+							std::cout << "Use option 1 to create library before adding books :)" << std::endl;
+							std::cout << std::endl;
+							break;
+							}
+						break;
+					}
 			case '3': {
+
+				std::cout << "who are you?" << std::endl;
+				std::cout << "press (L)ibrarian or (U)ser: ";
+				char question = ' ';
+				std::cin >> question;
 				library.printBooksInLib();
 				std::cout << "Please type book ID of book you with to borrow: " << std::endl;
 				unsigned int bookID{0};
 				std::cin >> bookID;
-				library.borrow(bookID-1, &book.at(bookID-1)); // -1 is offset for correct index
+				bookID--;// -1 is offset for correct index
+				library.borrow(bookID, &book.at(bookID), question);
 
 				break;
 			}
@@ -66,6 +79,10 @@ int main() {
 				break;
 			case '6':
 				std::cout << "User books: " << std::endl;
+				library.printUserBooks();
+				break;
+			case '7':
+				std::cout << "Librarian books: " << std::endl;
 				library.printUserBooks();
 				break;
 			default:
@@ -88,6 +105,7 @@ char menu() {
 	std::cout << "4 - Return book" << std::endl;
 	std::cout << "5 - Print out all books" << std::endl;
 	std::cout << "6 - Print books borrowed by user" << std::endl;
+	std::cout << "7 - Print books borrowed by Librarian" << std::endl;
 	std::cout << "9 - to Quit" << std::endl;
 	std::cin >> choice;
 	return choice;

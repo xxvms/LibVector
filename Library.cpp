@@ -23,17 +23,30 @@ void Library::printBooksInLib()const {
 		}
 	}
 }
-void Library::borrow(unsigned int id, Book const* bk)  {
+void Library::borrow(unsigned int id, Book const* bk, char userType)  {
 
-	if (books_container.empty())
+	if (userType == 'l' || userType == 'L')
 	{
-		std::cout << "***** I am sorry no books in Library! :( ****" << std::endl;
+		if (books_container.empty())
+		{
+			std::cout << "***** I am sorry no books in Library! :( ****" << std::endl;
+		} else {
+
+			librarian_books.reserve(2);
+			librarian_books.push_back(bk);
+
+			books_container.erase(books_container.begin()+id);
+		}
 	} else {
+		if (books_container.empty()) {
+			std::cout << "***** I am sorry no books in Library! :( ****" << std::endl;
+		} else {
 
-		user_books.reserve(1);
-		user_books.push_back(bk);
+			user_books.reserve(1);
+			user_books.push_back(bk);
 
-		books_container.erase(books_container.begin()+id);
+			books_container.erase(books_container.begin() + id);
+		}
 	}
 }
 void Library::printUserBooks() const

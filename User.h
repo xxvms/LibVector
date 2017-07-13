@@ -20,5 +20,16 @@ public:
 };
 
 
+class Librarian : public User {
+	std::vector<Book const*> books_Librarian_have;
+
+public:
+	Librarian();
+	void printL()const;
+	void borrowL(Book const* book);
+	Book const* returnL();
+
+};
+
 
 #endif //LIBVECTOR_USER_H
