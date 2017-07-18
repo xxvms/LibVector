@@ -34,14 +34,16 @@ void Library::borrow(unsigned int id, Book const* bk, char userType)  {
 			librarian_books.reserve(2);
 			librarian_books.push_back(bk);
 
-			books_container.erase(books_container.begin()+id);
+			//books_container.erase(books_container.begin()+id);
+			books_container.at(id) = nullptr;
 			} else {
 
 
 			user_books.reserve(1);
 			user_books.push_back(bk);
 
-			books_container.erase(books_container.begin() + id);
+			//books_container.erase(books_container.begin() + id);
+			books_container.at(id) = nullptr;
 		}
 	}
 }
