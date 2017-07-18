@@ -21,7 +21,8 @@ public:
 	void printBooksInLib()const;
 	void borrow(unsigned int id, Book const* bk, char userType);
 	void printUserBooks() const;
-	void returnBook(Book const* bk);
+	void printLibrarianBooks() const;
+	void returnBook(Book const* bk, char question);
 
 };
 

@@ -30,7 +30,7 @@ int main() {
 							char howManyBooks = '0';
 							std::cout << "How many books do you want to add:";
 							std::cin >> howManyBooks;
-							if ( howManyBooks > '0' || howManyBooks < '9'){
+							if ( howManyBooks > '0' && howManyBooks < '9'){
 								unsigned int books_to_add = howManyBooks - 48;
 								 //unsigned int books_to_add = static_cast<unsgined int>(howManyBooks - 48);
 								for (size_t i = 0; i < books_to_add; i++) {
@@ -68,11 +68,15 @@ int main() {
 				break;
 			}
 
-			case '4':
+			case '4': {
 				std::cout << "Return Book" << std::endl;
-				library.returnBook(&book.at(0));
+				std::cout << "who are you?" << std::endl;
+				std::cout << "press (L)ibrarian or (U)ser: ";
+				char question = ' ';
+				std::cin >> question;
+				library.returnBook(&book.at(0), question);
 				break;
-
+			}
 			case '5':
 				std::cout << "Print all books in library";
 				library.printBooksInLib();
@@ -83,7 +87,7 @@ int main() {
 				break;
 			case '7':
 				std::cout << "Librarian books: " << std::endl;
-				library.printUserBooks();
+				library.printLibrarianBooks();
 				break;
 			default:
 				std::cout << "smile its friday";
