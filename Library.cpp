@@ -75,21 +75,41 @@ void Library::printLibrarianBooks() const
 void Library::returnBook(Book const* bk, char question)
 {	if (question == 'l' || question =='L') {
 		std::cout << "you are librarian" << std::endl;
+		if (!librarian_books.empty()){
+			for (size_t i = 0; i < librarian_books.size(); ++i) {
+				librarian_books.at(i)->print();
+			}
+			std::cout << "Wchich book do you want to return?"<< std::endl;
+			unsigned int bookID{0};
+			std::cin >> bookID;
+			bookID--;// -1 is offset for correct index
+			std::cout << std::endl;
+			std::cout << "thanks for returning your book!" << std::endl;
+			std::cout << std::endl;
+
+			books_container.push_back(bk);
+
+			librarian_books.erase(librarian_books.begin()+ bookID);
+		} else {
+			std::cout << std::endl;
+			std::cout << "you don't have any books, go and rent one!" << std::endl;
+			std::cout << std::endl;
+		}
 	} else {
 		std::cout << "you are user" << std::endl;
+		if (!books_container.empty()){
+
+			std::cout << std::endl;
+			std::cout << "thanks for returning your book!" << std::endl;
+			std::cout << std::endl;
+
+			books_container.push_back(bk);
+
+			user_books.pop_back();
+		} else {
+			std::cout << std::endl;
+			std::cout << "you don't have any books, go and rent one!" << std::endl;
+			std::cout << std::endl;
+		}
 	}
-	/*if (!books_container.empty()){
-
-		std::cout << std::endl;
-		std::cout << "thanks for returning your book!" << std::endl;
-		std::cout << std::endl;
-
-		books_container.push_back(bk);
-
-		user_books.pop_back();
-	} else {
-		std::cout << std::endl;
-		std::cout << "you don't have any books, go and rent one!" << std::endl;
-		std::cout << std::endl;
-	}*/
 }
